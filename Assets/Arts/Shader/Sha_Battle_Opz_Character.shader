@@ -86,6 +86,13 @@ Shader "Toon/TA/Opz_Sha_BattleCharacter_StencilOutline"
         [HideInInspector] _MainTex("BaseMap", 2D) = "white" {}
         [HideInInspector] _Color("Base Color", Color) = (0.5, 0.5, 0.5, 1)
         [HideInInspector] _SampleGI("SampleGI", float) = 0.0 // needed from bakedlit
+
+        [Header(Mesh Animation)]
+        _AnimTex ("Animation", 2D) = "white" {}
+        _AnimMul ("Animation Bounds Size", Vector) = (1, 1, 1, 0)
+        _AnimAdd ("Animation Bounds Offset", Vector) = (0, 0, 0, 0)
+        [PerRendererData] _AnimTime ("Animation Time", Vector) = (0, 1, 1, 0) /* (x: start, y: length, z: speed, w: startTime) */
+        [PerRendererData] _AnimLoop ("Animation Loop", Float) = 1
     }
     SubShader
     {
@@ -143,6 +150,8 @@ Shader "Toon/TA/Opz_Sha_BattleCharacter_StencilOutline"
             //#pragma shader_feature_local _ENABLEEMISSION
             #pragma shader_feature_local __ _SMOOTHNORMALINCHANNEL_TANGENT _SMOOTHNORMALINCHANNEL_UV2 _SMOOTHNORMALINCHANNEL_VERTEXCOLOR
             #pragma shader_feature_local _RECEIVE_SHADOWS_OFF
+
+         
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
             #include "Includes/ToonCharaterInput.hlsl"

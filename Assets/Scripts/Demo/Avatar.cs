@@ -8,6 +8,16 @@ public class Avatar: MonoBehaviour
    public MeshAnimator animator;
     void Start()
     {
-        animator.Play("NightmareWizard_Attack");
+        animator.Play("NightmareWizard_Idle");
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    private void OnGUI()
+    {
+        
     }
 }

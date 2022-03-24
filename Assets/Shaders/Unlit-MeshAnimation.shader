@@ -73,14 +73,14 @@
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-                UNITY_TRANSFER_FOG(o,o.vertex);
+                //UNITY_TRANSFER_FOG(o,o.vertex);
                 return o;
             }
 
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                UNITY_APPLY_FOG(i.fogCoord, col);
+                //UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
             }
             ENDCG
